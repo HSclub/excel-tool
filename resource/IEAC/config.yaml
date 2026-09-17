@@ -1,0 +1,163 @@
+
+input_dir: "input"
+output_dir: "output"
+
+# 注意：模板文件放在 output 目录
+template_file: "IEAC模板.xlsx"
+
+# 模板 Sheet
+# 如果不填写，自动使用模板文件的第一个 Sheet。
+# 如果模板中有专门的模板 Sheet，建议写上，例如：
+template_sheet: "IEAC模板"
+project_name: " 中卫雅云模组71"
+
+# 输入 Excel Sheet
+input_sheet: "设备清单"
+input_file_contains: "${project_name}"
+# 数据必须有值的字段
+require_non_empty:
+  - "设备完整编号"
+
+# 所有 group 默认输出到这个 Sheet。
+# group 内如果单独写 output_sheet，则以 group 自己的为准。
+output_sheet: "${project_name}"
+
+
+groups:
+  - name: "回油泵"
+    template_find:
+      column: "A"
+      value: "回油泵"
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "回油泵"
+
+  - name: "日用油箱"
+    template_find:
+      column: "B"
+      value: "日用油箱"
+    output_column: "B"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "日用油箱"
+
+  - name: "内风机"
+    template_find:
+      column: "A"
+      value: "内风机"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "内风机"
+
+  - name: "外风机"
+    template_find:
+      column: "A"
+      value: "外风机"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "外风机"
+
+  - name: "输入断路器-氟泵"
+    template_find:
+      column: "A"
+      value: "输入断路器"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "输入断路器"
+      设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+      所属整机类型: "IT模块氟泵自然冷空调"
+
+  - name: "输入断路器-市电"
+    template_find:
+      column: "A"
+      value: "输入断路器"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "输入断路器"
+      设备种类描述: "塑壳断路器（市电输入带相位检测器）"
+      所属整机类型: "IT分体氟泵自然冷空调内机"
+
+  - name: "输入断路器-逆变器"
+    template_find:
+      column: "A"
+      value: "输入断路器"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "输入断路器"
+      设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+      所属整机类型: "IT分体氟泵自然冷空调内机"
+
+  - name: "喷淋水泵"
+    template_find:
+      column: "A"
+      value: "喷淋水泵"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "喷淋水泵"
+
+  - name: "变频压缩机"
+    template_find:
+      column: "A"
+      value: "变频压缩机"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "变频压缩机"
+
+  - name: "空调逆变器"
+    template_find:
+      column: "A"
+      value: "空调逆变器"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "空调逆变器"
+#      设备种类描述: "塑壳断路器（B路带多回路电表_弹性直流系统）"
+
+  - name: "UPS输入输出柜（输出）"
+    template_find:
+      column: "A"
+      value: "UPS输入输出柜（输出）"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "UPS输入输出柜（输出）"
+
+  - name: "UPS输入输出柜（输入）"
+    template_find:
+      column: "A"
+      value: "UPS输入输出柜（输入）"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "UPS输入输出柜（输入）"
+
