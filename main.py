@@ -13,7 +13,7 @@ import yaml
 
 # ==================== 配置区 ====================
 # 三个模板的名字（对应打包时 --add-data 里 resource 目录下的子目录）
-TEMPLATE_NAMES = ["SHUI", "冷冻水", "冷源"]  # ← 改成实际名字
+TEMPLATE_NAMES = ["SHUI", "冷冻水", "冷源", "IEAC"]  # ← 改成实际名字
 
 SCRIPT_NAME = "excel_cleaner.py"
 CONFIG_NAME = "config.yaml"
