@@ -1,0 +1,321 @@
+# 输入Excel目录
+input_dir: "input"
+
+# 输出模板目录
+output_dir: "output"
+
+# 输出模板文件
+template_file: "液冷模板.xlsx"
+
+# ==========================================================
+# 输入数据配置
+# ==========================================================
+# 输入Excel Sheet
+input_sheet: 0
+
+# 数据必须有值的字段
+require_non_empty:
+  - "设备完整编号"
+
+# ==========================================================
+# 写入规则
+# ==========================================================
+groups:
+  - name: "一体冷源"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "F"
+    # 开始行
+    start_row: 2
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "一体冷源"
+
+  - name: "一体冷源"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "F"
+    # 开始行
+    auto_position: true
+    description: "备用"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "备用一体冷源"
+      
+  - name: "一次侧循环泵"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "J"
+    # 开始行
+    start_row: 2
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "一次侧循环泵"
+      所属整机类型: "一体冷源"
+
+  - name: "一次侧循环泵"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "J"
+    # 开始行
+    auto_position: true
+    blank_rows_after: 1
+    description: "备用"
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "一次侧循环泵"
+      所属整机类型: "备用一体冷源"
+      
+  - name: "喷淋水泵"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "N"
+    # 开始行
+    start_row: 2
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "喷淋水泵"
+      所属整机类型: "一体冷源"
+
+  - name: "喷淋水泵"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "N"
+    # 开始行
+    auto_position: true
+    blank_rows_after: 1
+    description: "备用"
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "喷淋水泵"
+      所属整机类型: "备用一体冷源"
+      
+  - name: "二次侧循环泵"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "R"
+    # 开始行
+    start_row: 2
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "二次侧循环泵"
+      
+  - name: "一体冷源01/02逆变"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "W"
+    # 开始行
+    start_row: 2
+    # 第一行描述
+    description: "输入断路器（一体冷源01/02逆变）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "一体冷源"
+      设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+      
+  - name: "一体冷源03/04控制"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "W"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "输入断路器（一体冷源03/04控制）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "一体冷源"
+      设备种类描述: "微型断路器（单相控制器输入带相位检测器）"
+      
+  - name: "备用一体冷源03/04控制"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "W"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "输入断路器（备用一体冷源03/04控制）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "备用一体冷源"
+      设备种类描述: "微型断路器（单相控制器输入带相位检测器）"
+      
+  - name: "风墙01/02市电"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AA"
+    # 开始行
+    start_row: 2
+    # 第一行描述
+    description: "输入断路器（风墙01/02市电）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "风墙"
+      设备种类描述: "塑壳断路器（市电输入带相位检测器）"
+      
+  - name: "03逆变"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AA"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "输入断路器（03逆变）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "风墙"
+      设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+      
+  - name: "04/05控制"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AA"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "输入断路器（04/05控制）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "风墙"
+      设备种类描述: "微型断路器（单相控制器输入带相位检测器）"      
+      
+  - name: "备用风墙01/02市电"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AA"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "备用风墙输入断路器（风墙01/02市电）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "备用风墙"
+      设备种类描述: "塑壳断路器（市电输入带相位检测器）"
+      
+  - name: "备用03逆变"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AA"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "备用风墙输入断路器（03逆变）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "备用风墙"
+      设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+      
+  - name: "备用04/05控制"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AA"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "备用风墙输入断路器（04/05控制）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "备用风墙"
+      设备种类描述: "微型断路器（单相控制器输入带相位检测器）"
+      
+  - name: "01/02逆变"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AE"
+    # 开始行
+    start_row: 2
+    # 第一行描述
+    description: "输入断路器（01/02逆变）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "液冷分配单元"
+      设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+      
+  - name: "03~04控制"
+    # 写入到目标Excel哪个Sheet
+    output_sheet: "乌兰察布乌拉模组44液冷"
+    # 写入哪一列
+    output_column: "AE"
+    # 开始行
+    auto_position: true
+    # 第一行描述
+    description: "输入断路器（03~04控制）"
+    blank_rows_after: 1
+    # 从输入Excel哪个字段取值
+    value_column: "设备完整编号"
+    # 筛选条件
+    match:
+      应用类型: "输入断路器"
+      所属整机类型: "液冷分配单元"
+      设备种类描述: "微型断路器（单相控制器输入带相位检测器）"

@@ -1,0 +1,126 @@
+
+input_dir: "input"
+output_dir: "output"
+
+# 注意：模板文件放在 output 目录
+template_file: "冷冻水模板.xlsx"
+
+# 模板 Sheet
+# 如果不填写，自动使用模板文件的第一个 Sheet。
+# 如果模板中有专门的模板 Sheet，建议写上，例如：
+template_sheet: "冷冻水模板"
+project_name: "嘉兴洪福模组12"
+
+# 输入 Excel Sheet
+input_sheet: "设备清单"
+input_file_contains: "${project_name}"
+# 数据必须有值的字段
+require_non_empty:
+  - "设备完整编号"
+
+# 所有 group 默认输出到这个 Sheet。
+# group 内如果单独写 output_sheet，则以 group 自己的为准。
+output_sheet: "${project_name}"
+
+
+groups:
+  - name: "动力UPS"
+    template_find:
+      column: "A"
+      value: "动力UPS"
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "动力UPS"
+      #设备种类描述: "塑壳断路器（B路带多回路电表_弹性直流系统）"
+
+  - name: "弱电UPS"
+    template_find:
+      column: "A"
+      value: "弱电UPS"
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "弱电UPS"
+
+  - name: "冷冻泵控制柜-市电"
+    template_find:
+      column: "A"
+      value: "冷冻泵控制柜"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "冷冻泵控制柜"
+#      设备种类描述: "塑壳断路器（市电输入带相位检测器）"
+
+  - name: "冷水机组配电柜"
+    template_find:
+      column: "A"
+      value: "冷水机组配电柜"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "冷水机组配电柜"
+      #设备种类描述: "塑壳断路器（逆变器输入带相位检测器）"
+
+  - name: "冷却塔控制柜"
+    template_find:
+      column: "A"
+      value: "冷却塔控制柜"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "冷却塔控制柜"
+
+  - name: "冷却泵控制柜"
+    template_find:
+      column: "A"
+      value: "冷却泵控制柜"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "冷却泵控制柜"
+#      设备种类描述: "塑壳断路器（B路带多回路电表_弹性直流系统）"
+
+  - name: "日用油箱"
+    template_find:
+      column: "A"
+      value: "日用油箱"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "日用油箱"
+
+  - name: "回油泵"
+    template_find:
+      column: "B"
+      value: "回油泵"
+    output_column: "B"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "回油泵"
+
+  - name: "空调逆变器"
+    template_find:
+      column: "A"
+      value: "空调逆变器"
+    auto_position: true
+    output_column: "A"
+    value_column: "设备完整编号"
+    direction: "down"
+    match:
+      应用类型: "空调逆变器"
+
